@@ -2,11 +2,12 @@
 
 
 use App\Http\Controllers\SigninController;
+use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
     return view('home',['title' => 'Selamat Datang di BP3IP']);
-});
+})->middleware(AuthMiddleware::class);
 
 Route::get('/bidang', function () {
     return view('bidang',[
@@ -34,22 +35,24 @@ Route::get('/bidang', function () {
             ]
         ]
     ]);
-});
+})->middleware(AuthMiddleware::class);
+
 
 
 Route::get('/about', function () {
     return view('about',['title' => 'Visi & Misi']);
-});
+})->middleware(AuthMiddleware::class);
 
 Route::get('/contact', function () {
     return view('contact',['title' => 'Contact Page']);
-}); 
+})->middleware(AuthMiddleware::class); 
 
 Route::get('/pdf', function () {
     return view('pdf',['title' => 'Preview SOP']);
-});
+})->middleware(AuthMiddleware::class);
 
 Route::get('/',[SigninController::class,'halamanlogin'])->name('signin');
+
 Route::post('/postlogin',[SigninController::class,'postlogin'])->name('postlogin');
 
 

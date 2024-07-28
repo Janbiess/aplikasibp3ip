@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class SigninController extends Controller
 {
-    public function halamanlogin (){
+    public function halamanlogin (Request $request){
+        $request->session()->forget('email');
         return view('sign-in');
     }
 
