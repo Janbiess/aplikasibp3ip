@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FileController extends Controller
 {
@@ -12,8 +13,13 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::latest()->paginate(10);
-        return view('files.index', compact('files'));
+       $files = File::latest()->paginate(10);
+      // $files = File::where('bidang','1')->get();
+      // $files = DB::table('files')->where('bidang', '1')->get();
+      // echo($files);
+    //    $files = File::latest()->paginate(10);
+        // return view('files.index', compact('files'));
+        return view('files.index', ['files'=>$files]);
     }
 
     /**
@@ -39,7 +45,8 @@ class FileController extends Controller
 
         File::create([
             'original_name' => $file->getClientOriginalName(),
-            'generated_name' => $fileName
+            'generated_name' => $fileName,
+            // 'bidang'=> 2,
         ]);
 
         return redirect()

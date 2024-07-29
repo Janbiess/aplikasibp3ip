@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h4 class="text-center my-4">Tutorial Laravel 11: Upload dan Download File @ <a href="https://qadrlabs.com">qadrlabs.com</a></h4>
+                    <h4 class="text-center my-4">UPLOAD FILE</h4>
                 </div>
-                <a href="{{ route('files.index') }}" class="btn btn-md btn-link mb-3">Back</a>
+                <a href="{{ route('files.index') }}" <button type="button" class="btn btn-outline-primary"></button>Back</a>
 
                 <div class="card rounded">
                     <div class="card-body">

@@ -15,6 +15,7 @@
                 <div>
                     <h4 class="text-center my-4">DOWNLOAD & UPLOAD FILE SOP QMS </h4>
                 </div>
+                <a href="/bidang" <button type="button" class="btn btn-outline-primary"></button>Back</a>
                 <div class="card rounded">
                     <div class="card-body">
                         <a href="{{ route('files.create') }}" class="btn btn-md btn-primary mb-3 float-end">Upload File</a>
