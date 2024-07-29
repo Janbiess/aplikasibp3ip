@@ -15,7 +15,7 @@ class SigninController extends Controller
 
     public function postlogin(Request $request){
         if(Auth::attempt($request->only('email','password'))){
-            $request->session()->put('email', $request->email);
+            $request->session()->put('email', $request->email);     //session yang digunakan
             return redirect('/home');
     }
     return redirect('/');

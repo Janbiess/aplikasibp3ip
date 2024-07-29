@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\SigninController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +35,7 @@ Route::get('/bidang', function () {
             ]
         ]
     ]);
-})->middleware(AuthMiddleware::class);
+})->middleware(AuthMiddleware::class);     //middleware
 
 
 
@@ -55,4 +55,17 @@ Route::get('/',[SigninController::class,'halamanlogin'])->name('signin');
 
 Route::post('/postlogin',[SigninController::class,'postlogin'])->name('postlogin');
 
+//Route file upload dan download
+
+Route::get('/files', [FileController::class, 'index'])
+    ->name('files.index');
+
+Route::get('/files/create', [FileController::class, 'create'])
+    ->name('files.create');
+
+Route::post('/files/store', [FileController::class, 'store'])
+    ->name('files.store');
+
+Route::get('/files/{file}/download', [FileController::class, 'download'])
+    ->name('files.download');
 

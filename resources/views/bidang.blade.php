@@ -9,7 +9,7 @@
       <a href="#">{{ $post['author'] }}</a>
     </div>
     <p class="my-4 font-light">{{ $post['body'] }}</p>
-      <a href="pdf" class="font-medium text-blue-500 hover:underline">Read more &raquo;</a>
+      <a href="files" class="font-medium text-blue-500 hover:underline">Read more &raquo;</a>
   </article>
    @endforeach
 </x-Layout>

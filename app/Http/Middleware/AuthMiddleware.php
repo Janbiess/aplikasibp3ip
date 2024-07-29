@@ -16,7 +16,7 @@ class AuthMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->session()->missing('email')) {
-            // ...
+            // request middleware
         
             return redirect('/');
          }
