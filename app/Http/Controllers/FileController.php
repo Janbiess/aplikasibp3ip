@@ -13,11 +13,9 @@ class FileController extends Controller
      */
     public function index()
     {
-       $files = File::latest()->paginate(10);
-      // $files = File::where('bidang','1')->get();
-      // $files = DB::table('files')->where('bidang', '1')->get();
-      // echo($files);
-    //    $files = File::latest()->paginate(10);
+        $files = File::latest()->paginate(10);
+      // $files = File::where('bidang', '2')->get();
+      // $files = File::where('bidang', '1')->get();
         // return view('files.index', compact('files'));
         return view('files.index', ['files'=>$files]);
     }
@@ -40,13 +38,14 @@ class FileController extends Controller
         ]);
 
         $file = $request->file('file');
+        $bidang = $request->input('bidang');
         $fileName = $file->hashName();
         $file->storeAs('uploads', $fileName);
 
         File::create([
             'original_name' => $file->getClientOriginalName(),
             'generated_name' => $fileName,
-            // 'bidang'=> 2,
+            'bidang'=> $bidang,
         ]);
 
         return redirect()

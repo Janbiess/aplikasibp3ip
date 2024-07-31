@@ -27,7 +27,7 @@
                             <div class="form-group mb-3">
                                 <label class="font-weight-bold">File</label>
                                 <input type="file" class="form-control @error('file') is-invalid @enderror" name="file">
-
+                                
                                 <!-- error message untuk image -->
                                 @error('file')
                                     <div class="alert alert-danger mt-2">
@@ -35,7 +35,18 @@
                                     </div>
                                 @enderror
                             </div>
-
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Bidang
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Bagian Keuangan Umum</a></li>
+                                  <li><a class="dropdown-item" href="#">Bidang Sumber Daya</a></li>
+                                  <li><a class="dropdown-item" href="#">Bidang Usaha</a></li>
+                                  <li><a class="dropdown-item" href="#">Bidang Penyelenggaraan</a></li>
+                                  <li><a class="dropdown-item" href="#">Bidang XXXX</a></li>
+                                </ul>
+                              </div>
                             <button type="submit" class="btn btn-md btn-primary me-3">Upload</button>
 
                         </form> 

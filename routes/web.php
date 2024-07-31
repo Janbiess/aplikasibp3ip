@@ -58,14 +58,14 @@ Route::post('/postlogin',[SigninController::class,'postlogin'])->name('postlogin
 //Route file upload dan download
 
 Route::get('/files', [FileController::class, 'index'])
-    ->name('files.index');
+    ->name('files.index')->middleware(AuthMiddleware::class);
 
 Route::get('/files/create', [FileController::class, 'create'])
-    ->name('files.create');
+    ->name('files.create')->middleware(AuthMiddleware::class);
 
 Route::post('/files/store', [FileController::class, 'store'])
-    ->name('files.store');
+    ->name('files.store')->middleware(AuthMiddleware::class);
 
 Route::get('/files/{file}/download', [FileController::class, 'download'])
-    ->name('files.download');
+    ->name('files.download')->middleware(AuthMiddleware::class);
 

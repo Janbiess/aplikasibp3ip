@@ -27,21 +27,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($files as $file)
+                                @foreach ($files as $file)
                                     <tr>
                                         <td>{{ $file->original_name }}</td>
                                         <td class="text-center">
                                         <a href="{{ route('files.download', $file) }}" class="btn btn-sm btn-primary">Download</a>
                                         </td>
                                     </tr>
-                                @empty
+                                @endforeach
+                                {{-- @empty
                                     <tr>
                                         <td colspan="2" class="text-muted text-center">Data file belum tersedia</td>
                                     </tr>
-                                @endforelse
+                                @endforelse --}}
                             </tbody>
                         </table>
-                        {{ $files->links() }}
+                        {{-- {{ $files->links() }} --}}
                     </div>
                 </div>
             </div>
