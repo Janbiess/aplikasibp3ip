@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SigninController;
+use App\Http\Controllers\admin;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,16 @@ Route::get('/pdf', function () {
 Route::get('/',[SigninController::class,'halamanlogin'])->name('signin');
 
 Route::post('/postlogin',[SigninController::class,'postlogin'])->name('postlogin');
+
+Route::get('/admin', [admin::class, 'home'])
+    ->name('admin')->middleware(AuthMiddleware::class);
+
+Route::post('/admin/upload/proses', [admin::class, 'upload'])
+    ->name('admin')->middleware(AuthMiddleware::class);
+
+Route::get('/admin/upload', function () {
+    return view('admin.uploadPage',['title' => 'Contact Page']);
+    })->middleware(AuthMiddleware::class); 
 
 //Route file upload dan download
 

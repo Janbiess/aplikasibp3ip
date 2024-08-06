@@ -13,8 +13,8 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::latest()->paginate(10);
-      // $files = File::where('bidang', '2')->get();
+        //$files = File::latest()->paginate(100);
+       $files = File::where('bidang','2')->get();
       // $files = File::where('bidang', '1')->get();
         // return view('files.index', compact('files'));
         return view('files.index', ['files'=>$files]);
